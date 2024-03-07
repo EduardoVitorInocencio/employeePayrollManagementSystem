@@ -24,7 +24,7 @@
    registro dos salários que cada funcionário está recebendo por um tipo específico de projeto em que está trabalhando
 
 
-### -------------------------------------------- _Lista de Entidade do Banco_  ------------------------------------------------
+### --------------------------------------- _Lista de Entidade do Banco_  ------------------------------------------------
 
 ### Employee
 A tabela de funcionários incluirá todos os dados pessoais do funcionário e será uma cobertura geral
