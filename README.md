@@ -98,3 +98,39 @@ Além disso, a tabela possui uma chave primária composta, que consiste nos camp
 
 Essa estrutura permite associar múltiplos projetos a múltiplos departamentos, refletindo uma relação de muitos-para-muitos entre departamentos e projetos.
 
+### Table Project
+
+Esta tabela inclui os dados de todos os projetos em que uma determinada empresa está trabalhando ou os projetos nos quais
+a empresa vai funcionar no futuro.
+
+A tabela `Project` parece armazenar informações sobre projetos. Aqui está a descrição dos campos:
+
+- Project_Id: Este campo armazena o identificador único de cada projeto. É do tipo NUMBER, o que sugere que é uma identificação numérica. No entanto, não há especificação de precisão, então assumiremos que é uma numeração inteira. Este campo é definido como a chave primária (PRIMARY KEY) da tabela, o que garante que cada identificador de projeto seja único.
+
+- Project_Name: Este campo armazena o nome do projeto. É do tipo VARCHAR2 com um comprimento máximo de 50 caracteres. Parece ser uma descrição concisa do nome do projeto.
+
+- Project_Description: Este campo armazena uma breve descrição do projeto. É do tipo VARCHAR2 com um comprimento máximo de 50 caracteres. Provavelmente é uma descrição curta que fornece informações adicionais sobre o projeto.
+
+Esses campos fornecem informações básicas sobre os projetos e são úteis para identificar, descrever e distinguir os diferentes projetos dentro de um sistema ou banco de dados.
+
+
+### Table Account Details 
+
+A Tabela de Detalhes da Conta manterá os dados relativos às contas às quais o funcionário se conectou
+a empresa para que seu salário seja creditado.
+
+Campos da tabela:
+
+- Account_Id: Este campo armazena o identificador único da conta. É do tipo NUMBER.
+
+- Bank_Name: Este campo armazena o nome do banco associado à conta. É do tipo VARCHAR2 com um comprimento máximo de 50 caracteres.
+
+- Account_Number: Este campo armazena o número da conta. É do tipo VARCHAR2 com um comprimento máximo de 50 caracteres.
+
+- Employee_Id: Este campo armazena o identificador do funcionário associado à conta. É do tipo NUMBER e é uma chave estrangeira (FOREIGN KEY) que faz referência ao campo Employee_Id na tabela Employee, conectando as informações da conta ao funcionário correspondente.
+
+A tabela também possui as seguintes restrições:
+
+- Account_PK: Esta é uma restrição de chave primária (PRIMARY KEY) que garante que o campo Account_Id seja único para cada registro na tabela AccountDetails. Isso impede a duplicação de identificadores de conta.
+
+- FOREIGN KEY (Employee_Id) REFERENCES Employee(Employee_Id): Esta é uma restrição de chave estrangeira que estabelece uma relação entre o campo Employee_Id na tabela AccountDetails e o campo Employee_Id na tabela Employee. Isso garante que cada Employee_Id na tabela AccountDetails corresponda a um Employee_Id existente na tabela Employee, mantendo a integridade referencial entre as tabelas.
