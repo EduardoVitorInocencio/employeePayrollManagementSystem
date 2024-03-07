@@ -86,7 +86,9 @@ Além disso, há uma restrição definida na tabela:
 
 ### Table DepartmentProject Bridge
 
-A tabela DepartmentProject é uma tabela de associação entre os departamentos e os projetos, muitas vezes usada em esquemas de banco de dados relacionais para representar a relação de muitos-para-muitos entre entidades. Aqui está a descrição dos campos:
+A tabela DepartmentProject é uma tabela de associação entre os departamentos e os projetos, muitas vezes usada em esquemas de banco de dados relacionais para representar a relação de muitos-para-muitos entre entidades.
+
+Campos da tabela:
 
  - Department_Id: Este campo armazena o identificador do departamento. É do tipo NUMBER.
 
@@ -103,7 +105,7 @@ Essa estrutura permite associar múltiplos projetos a múltiplos departamentos, 
 Esta tabela inclui os dados de todos os projetos em que uma determinada empresa está trabalhando ou os projetos nos quais
 a empresa vai funcionar no futuro.
 
-A tabela `Project` parece armazenar informações sobre projetos. Aqui está a descrição dos campos:
+Campos da tabela:
 
 - Project_Id: Este campo armazena o identificador único de cada projeto. É do tipo NUMBER, o que sugere que é uma identificação numérica. No entanto, não há especificação de precisão, então assumiremos que é uma numeração inteira. Este campo é definido como a chave primária (PRIMARY KEY) da tabela, o que garante que cada identificador de projeto seja único.
 
@@ -134,3 +136,94 @@ A tabela também possui as seguintes restrições:
 - Account_PK: Esta é uma restrição de chave primária (PRIMARY KEY) que garante que o campo Account_Id seja único para cada registro na tabela AccountDetails. Isso impede a duplicação de identificadores de conta.
 
 - FOREIGN KEY (Employee_Id) REFERENCES Employee(Employee_Id): Esta é uma restrição de chave estrangeira que estabelece uma relação entre o campo Employee_Id na tabela AccountDetails e o campo Employee_Id na tabela Employee. Isso garante que cada Employee_Id na tabela AccountDetails corresponda a um Employee_Id existente na tabela Employee, mantendo a integridade referencial entre as tabelas.
+
+
+### Table Education
+
+A Tabela de Educação acompanha a escolaridade do funcionário incluindo seus diplomas alcançados até
+agora.
+
+Campos da tabela:
+
+- Education_Id: Este campo armazena o identificador único de cada registro de educação. É do tipo NUMBER.
+
+- Employee_Id: Este campo armazena o identificador único do funcionário associado a essa entrada de educação. É do tipo NUMBER e serve como uma chave estrangeira (FOREIGN KEY) referenciando o campo Employee_Id na tabela Employee.
+
+- Degree: Este campo armazena o grau ou diploma obtido pelo funcionário. É do tipo VARCHAR com um comprimento máximo de 30 caracteres.
+
+- Graduation_Year: Este campo armazena o ano de graduação do funcionário. É do tipo NUMBER com uma precisão de 4 dígitos.
+
+A tabela Education parece estar relacionada à educação dos funcionários, armazenando informações como grau obtido e ano de graduação. Além disso, há uma restrição definida na tabela:
+
+- Location_PK: Esta é uma restrição de chave primária (PRIMARY KEY) que garante que o campo Education_Id seja único para cada registro na tabela. Isso impede a duplicação de identificadores de educação.
+
+### Table Leave
+
+A tabela de licenças mantém o registro do número de licenças que um funcionário tira ou tirou ao longo de
+qualquer mês ou um ano.
+
+Campos da tabela:
+
+- Leave_Id: Este campo armazena o identificador único de cada pedido de licença. É do tipo NUMBER.
+
+- Employee_Id: Este campo armazena o identificador único do funcionário associado ao pedido de licença. É do tipo NUMBER e é uma chave estrangeira (FOREIGN KEY) que faz referência ao campo Employee_Id da tabela Employee, relacionando os pedidos de licença aos funcionários correspondentes.
+
+- Leave_date: Este campo registra a data em que o pedido de licença foi feito. É do tipo DATE.
+
+Além disso, existem as seguintes restrições definidas na tabela:
+
+- Leave_PK: Esta é uma restrição de chave primária (PRIMARY KEY) que garante que o campo Leave_Id seja único para cada registro na tabela, impedindo a duplicação de identificadores de pedidos de licença.
+
+- FOREIGN KEY (Employee_Id) REFERENCES Employee(Employee_Id): Esta é uma restrição de chave estrangeira que garante que o valor presente no campo Employee_Id na tabela Leave corresponda a um valor existente no campo Employee_Id na tabela Employee, garantindo a integridade referencial entre as duas tabelas. Isso significa que cada pedido de licença está associado a um funcionário existente na tabela de funcionários.
+
+### Table  EmployeeAttendance Bridge
+
+A tabela Employee_Attendance tem como objetivo armazenar informações sobre a presença dos funcionários em determinados momentos, permitindo o acompanhamento da frequência de cada funcionário ao trabalho.
+
+Campos da tabela:
+
+- Employee_Id: Este campo armazena o identificador único do funcionário associado à presença. É do tipo NUMBER e é usado como uma chave estrangeira (FOREIGN KEY) referenciando a tabela Employee, especificamente o campo Employee_Id.
+
+- Attendance_Id: Este campo armazena o identificador único da presença. É do tipo NUMBER e é usado como uma chave estrangeira (FOREIGN KEY) referenciando a tabela Attendance, especificamente o campo Attendance_Id.
+
+Além disso, há uma restrição definida na tabela:
+
+- DEPARTMENTPROJECT_PK: Esta é uma restrição de chave primária (PRIMARY KEY) que combina os campos Employee_Id e Attendance_Id, garantindo que cada par de valores seja único na tabela Employee_Attendance. Essa restrição impede a duplicação de entradas de presença para um mesmo funcionário em um mesmo dia.
+As chaves estrangeiras (FOREIGN KEY) garantem que os valores nos campos Employee_Id e Attendance_Id estejam presentes nas tabelas Employee e Attendance, respectivamente, garantindo a integridade referencial entre as tabelas.
+
+### Table Attendence
+
+A tabela Attendance será utilizada para registrar a frequência e a quantidade de horas trabalhadas do funcionários.
+
+Campos da tabela:
+
+- Attendance_Id: Este campo representa o identificador único de cada registro de comparecimento. É do tipo NUMBER e não parece ser uma sequência automática, pois não está especificado como IDENTITY ou AUTOINCREMENT. Portanto, provavelmente é necessário fornecer valores manualmente para este campo.
+
+- Hours_Worked: Este campo armazena o número de horas trabalhadas durante o comparecimento registrado. É do tipo NUMBER e parece armazenar valores numéricos representando as horas trabalhadas.
+
+Além disso, há uma restrição definida na tabela:
+
+- Attendance_PK: Esta é uma restrição de chave primária (PRIMARY KEY) que garante que o campo Attendance_Id seja único para cada registro na tabela, evitando duplicações de IDs de frequência.
+
+### Table Work Location
+
+O nome da tabela diz a maioria das coisas. Esta tabela inclui a localização do escritório, qual cidade está
+está localizado, em que estado está e também rastreia o número de funcionários em um determinado local.
+
+Campos da tabela:
+
+Location_Id: Este campo armazena o identificador único de cada local de trabalho. É do tipo NUMBER e é definido como a chave primária (PRIMARY KEY) da tabela, garantindo que cada local de trabalho tenha um identificador exclusivo.
+
+Location: Este campo armazena o nome ou descrição do local de trabalho. É do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
+
+Number_Of_Employees: Este campo armazena o número de funcionários que trabalham neste local. É do tipo NUMBER.
+
+City: Este campo armazena a cidade onde o local de trabalho está localizado. É do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
+
+State: Este campo armazena o estado onde o local de trabalho está localizado. Também é do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
+
+Esses campos fornecem informações essenciais sobre os locais de trabalho, como sua localização, número de funcionários e outras informações relevantes. A chave primária garante a unicidade dos registros na tabela.
+
+
+
+
