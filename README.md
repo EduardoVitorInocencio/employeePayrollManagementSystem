@@ -212,15 +212,15 @@ está localizado, em que estado está e também rastreia o número de funcionár
 
 Campos da tabela:
 
-Location_Id: Este campo armazena o identificador único de cada local de trabalho. É do tipo NUMBER e é definido como a chave primária (PRIMARY KEY) da tabela, garantindo que cada local de trabalho tenha um identificador exclusivo.
+- Location_Id: Este campo armazena o identificador único de cada local de trabalho. É do tipo NUMBER e é definido como a chave primária (PRIMARY KEY) da tabela, garantindo que cada local de trabalho tenha um identificador exclusivo.
 
-Location: Este campo armazena o nome ou descrição do local de trabalho. É do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
+- Location: Este campo armazena o nome ou descrição do local de trabalho. É do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
 
-Number_Of_Employees: Este campo armazena o número de funcionários que trabalham neste local. É do tipo NUMBER.
+- Number_Of_Employees: Este campo armazena o número de funcionários que trabalham neste local. É do tipo NUMBER.
 
-City: Este campo armazena a cidade onde o local de trabalho está localizado. É do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
+- City: Este campo armazena a cidade onde o local de trabalho está localizado. É do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
 
-State: Este campo armazena o estado onde o local de trabalho está localizado. Também é do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
+- State: Este campo armazena o estado onde o local de trabalho está localizado. Também é do tipo VARCHAR2 com um comprimento máximo de 25 caracteres.
 
 Esses campos fornecem informações essenciais sobre os locais de trabalho, como sua localização, número de funcionários e outras informações relevantes. A chave primária garante a unicidade dos registros na tabela.
 
