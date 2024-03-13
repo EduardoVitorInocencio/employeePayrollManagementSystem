@@ -224,6 +224,20 @@ Campos da tabela:
 
 Esses campos fornecem informações essenciais sobre os locais de trabalho, como sua localização, número de funcionários e outras informações relevantes. A chave primária garante a unicidade dos registros na tabela.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Consultas em SQL (Queries)
+
+1. Selecione todos os funcionários e seus respectivos salários brutos;
+2. Obtenha o nome e a descrição de todos os projetos;
+3. Encontre todos os departamentos e o número de funcionários em cada departamento;
+4. Selecione o nome do banco e o número da conta bancária de todos os funcionários;
+5. Encontre o número de horas trabalhadas por cada funcionário;
+6. Obtenha todos os funcionários que se formaram em um ano anterior a 2010 e sua respectiva graduação;
+7. Encontre todos os funcionários que têm uma conta bancária e um salário associado;
+8. Selecione todos os funcionários que têm férias marcadas para depois de 2023;
+9. Encontre o número total de funcionários em cada cidade de trabalho;
+10. Obtenha o salário bruto médio de todos os funcionários;
 
 
 
